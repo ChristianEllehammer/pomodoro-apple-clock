@@ -68,7 +68,15 @@
   
   /* Smooth transitions for all interactive elements */
   .timer-button {
-    @apply transition-all duration-200 ease-in-out;
+    @apply transition-all duration-200 ease-in-out transform hover:scale-105;
+  }
+  
+  .timer-button:hover {
+    @apply shadow-lg;
+  }
+  
+  .timer-button:active {
+    @apply scale-95;
   }
   
   /* Apple-style card hover effects */
@@ -84,5 +92,110 @@
   .timer-display {
     font-variant-numeric: tabular-nums;
     font-feature-settings: "tnum";
+  }
+  
+  /* Enhanced circular progress styles */
+  .circular-progress {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  }
+  
+  /* Glow effects for active sessions */
+  .session-active {
+    @apply shadow-2xl;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .session-focus {
+    @apply ring-2 ring-blue-200 shadow-blue-100/50;
+    box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25),
+                0 0 30px rgba(59, 130, 246, 0.1);
+  }
+  
+  .session-rest {
+    @apply ring-2 ring-green-200 shadow-green-100/50;
+    box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.25),
+                0 0 30px rgba(16, 185, 129, 0.1);
+  }
+  
+  .session-paused {
+    @apply ring-2 ring-yellow-200 shadow-yellow-100/50;
+    box-shadow: 0 25px 50px -12px rgba(234, 179, 8, 0.25),
+                0 0 30px rgba(234, 179, 8, 0.1);
+  }
+  
+  /* Enhanced button hover effects */
+  .enhanced-button {
+    @apply transition-all duration-200 ease-out transform;
+  }
+  
+  .enhanced-button:hover {
+    @apply scale-105 shadow-lg;
+  }
+  
+  .enhanced-button:active {
+    @apply scale-95;
+  }
+  
+  /* Input focus enhancements */
+  .enhanced-input:focus {
+    @apply transform scale-105 shadow-lg ring-2 ring-blue-200;
+  }
+  
+  /* Responsive circular progress */
+  @media (max-width: 640px) {
+    .circular-progress-responsive {
+      width: 240px !important;
+      height: 240px !important;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .circular-progress-responsive {
+      width: 200px !important;
+      height: 200px !important;
+    }
+  }
+  
+  /* Mobile-friendly button spacing */
+  @media (max-width: 640px) {
+    .mobile-button-spacing {
+      @apply space-x-2;
+    }
+    
+    .mobile-button-spacing > * {
+      @apply px-4 py-2 text-sm;
+    }
+  }
+  
+  /* Smooth pulse animation for notifications */
+  @keyframes gentle-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+  }
+  
+  .notification-pulse {
+    animation: gentle-pulse 2s ease-in-out infinite;
+  }
+  
+  /* Title flash animation */
+  @keyframes title-flash {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+  
+  .title-flash {
+    animation: title-flash 0.5s ease-in-out;
   }
 }
